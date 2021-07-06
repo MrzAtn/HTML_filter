@@ -4,8 +4,7 @@ function TableFilterTot(tableSel) {
         table = document.getElementById("table1");
         str1 = document.getElementById("MySelect1").value;
         str2 = document.getElementById("MySelect2").value;
-
-    } else {
+    } else { // if we use more than 1 table
         table = document.getElementById("table2");
         str1 = document.getElementById("MySelect3").value;
         str2 = document.getElementById("MySelect4").value;
