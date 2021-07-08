@@ -9,7 +9,7 @@ function TableFilterTot(tableSel) {
         str1 = document.getElementById("MySelect3").value;
         str2 = document.getElementById("MySelect4").value;
     }
-    for (var i = 1; i < table.rows.length - 1; i++) {
+    for (var i = 1; i < table.rows.length; i++) {
         var pos1 = -1;
         var pos2 = -1;
         var coldata1 = table.rows[i].cells[1].innerHTML;;
