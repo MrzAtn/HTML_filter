@@ -37,3 +37,22 @@
 .Select1:focus {
     background-color: DarkSlateGrey;
 }
+
+#table1 .th-sort-asc::after {
+    content: "\25b4";
+}
+
+#table1 .th-sort-desc::after {
+    content: "\25be";
+}
+
+#table1 .th-sort-asc::after,
+#table1 .th-sort-desc::after {
+    margin-left: 40px;
+}
+
+
+/* #table1 .th-sort-asc,
+#table1 .th-sort-desc {
+    background: rgba(0, 0, 0, 0.1);
+} */

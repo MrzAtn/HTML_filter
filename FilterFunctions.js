@@ -43,3 +43,60 @@ function TableFilterTot(tableSel) {
         }
     }
 }
+
+
+function sortTableByColumn(tableSel, column) {
+    var table;
+    if (tableSel == 1) {
+        table = document.getElementById("table1");
+    } else { // if we use more than 1 table
+        table = document.getElementById("table2");
+    }
+    var rows, i, x, y, count = 0;
+    var switching = true;
+    var direction = "asc";
+
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+
+        for (i = 1; i < (rows.length - 1); i++) {
+            var _switch = false;
+
+            x = rows[i].getElementsByTagName("TD")[column];
+            y = rows[i + 1].getElementsByTagName("TD")[column];
+
+            if (direction == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    _switch = true;
+                    break;
+                }
+            } else if (direction == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    _switch = true;
+                    break;
+                }
+            }
+        }
+
+        if (_switch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            count++;
+        } else {
+            if (count == 0 && direction == "asc") {
+                direction = "desc";
+                switching = true;
+            }
+        }
+    }
+
+    var element = document.getElementById("th_country");
+    if (direction == "asc") {
+        element.classList.remove("th-sort-desc");
+        element.classList.toggle("th-sort-asc");
+    } else if (direction == "desc") {
+        element.classList.remove("th-sort-asc");
+        element.classList.toggle("th-sort-desc");
+    }
+}
